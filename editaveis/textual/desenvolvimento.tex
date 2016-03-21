@@ -47,6 +47,7 @@ Afim de direcionar a inspeção a seguinte ordem de inspeção e analise é prop
 \end{itemize}
 
 \section{Definição do Processo de VeV}
+
 \subsection{Escolha da Metodologia Estática}
 Para a definição do processo de Verificação e Validação, utilizamos a revisão
 estática Walkthrogth. Pois,  a equipe avaliadora é composta por técnicos no escopo
@@ -54,9 +55,38 @@ do artefato escolhido. Além disso, com este método estático, a equipe pode co
 junta a fim de estabelecer uma melhor verificação para o produto.
 
 \subsection{Processo de VeV}
-Imagem*
+A modelagem de processos auxilia à nivelar o entendimento de todo o time sobre o processo a ser executado, além de manter 
+um padrão nas atividades executadas\cite{romano} . Por isso, foi 
+desenvolvido um processo de verificação e validação utilizando o método walkthrough. A imagem abaixo apresenta o processo 
+modelado.
 
-Descrição*
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.55, angle = 90]{figuras/Processo_vv_walkthrough}
+\caption[Processo de Verificação e Validação Utilizado]{Processo de Verificação e Validação Utilizado\footnotemark}
+\end{figure}
+\FloatBarrier
+
+A atividade "Análise do Modelo" é executada pela EVeV, e prevê uma análise do modelo de dados visando encontrar erros 
+relacionados aos padrões UML e erros na modelagem do banco de dados. 
+
+A atividade "Levantamento de Indagações" é executada pela EVeV, e prevê o levantamento e registros de questões e 
+observações relacionadas ao modelo de dados. 
+
+A atividade "Explanação do modelo" é executada pela Dona do Produto, e prevê uma explicação do modelo de dados visando 
+proporcionar um entendimento geral do modelo.
+
+A atividade "Arguição do Modelo" é executada pela Dona do Produto e pela EVeV, e prevê uma apresentação dos erros e 
+dúvidas por parte da equipe de EVeV e resposta por parte da Dona do Produto.
+
+A atividade "Reformulação do Modelo" é executada pela Dona do Produto, visando a adequação com os itens do Documento de 
+Revisão.
+
+A atividade "Inspeção dos itens de revisão" é executada pela equipe de EVeV, e prevê uma verificação se todos os itens 
+propostos no Documento de Revisão foram atendidos.
+
+Por meio desse processo, o time conseguiu realizar com sucesso o processo de verificação e validação.	
+
 
 \subsection{Produtos de Auxílio}
 Para desenvolver os trabalhos da revisão estática, são necessários alguns artefatos
