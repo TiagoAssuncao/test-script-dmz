@@ -13,3 +13,18 @@ dist: clean
 
 dist-clean: clean
 	rm -f $(PDF_FILE) $(TARGET)
+
+bib:
+	pdflatex tcc.tex
+	bibtex tcc.aux
+	pdflatex tcc.tex
+	gnome-open tcc.pdf
+
+full:
+	pdflatex tcc.tex
+	pdflatex tcc.tex
+	bibtex tcc.aux
+	bibtex tcc.aux
+	pdflatex tcc.tex
+	pdflatex tcc.tex
+	gnome-open tcc.pdf
