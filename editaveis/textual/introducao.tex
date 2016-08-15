@@ -8,6 +8,10 @@ Para executar esta bateria de testes, iremos utilizar algumas ferramentas:
     \item Simple Server UDP
 \end{itemize}
 
+Para instalar estas ferramentas, pode ser utilizado um repositório do github,
+que contém o script de instalação delas:
+\hyperref[label_name]{https://github.com/TiagoAssuncao/test-script-dmz}.
+
 O uso dessas ferramentas serão detalhados logo a seguir, descrevendo os passos para
 testar o sistema com estas. Para todas as ferramentas, primeiramente, iremos
 iniciar a fase de learning, após, os ataques serão executados.
@@ -18,5 +22,38 @@ A hping3 será utilizada para testar a aplicação TCP SYN. Os seguintes passos
 serão executados:
 
 \begin{enumerate}
-    \item Testar
+    \item Iniciar a fase de learning com o comando seguinte:
+
+        hping3 --syn -c 10000 -p 80 ipDeDestino
+
+    \item Após dez flows, pode-se aplicar o ataque com as seguintes flags:
+
+        hping3 --flood --syn  -p 80 ipDeDestino
+
+    \item Dessa maneira, deve entrar outro atacante com velocidade de ataque menor,
+        para que ele apareça nos top senders:
+
+        hping3 --faster --syn  -p 80 ipDeDestino
+
+    \item E por fim, deve-se diminuir a velocidade de ataque do primeiro atacante,
+        para que seja possível visualizar a troca de posições no top sender.
+
+        hping3 --syn  -p 80 ipDeDestino
 \end{enumerate}
+
+Como resultado destes testes, espera-se que no passo um, o DMZ se comporte sem
+nenhum alerta, pois este estará na fase de aprendizado. Logo após, no passo 2,
+espera-se um alerta de ataque por parte do programa, sinalizando os ip's que estão
+o atacando.
+
+Por fim, os últimos dois passos testarão as funcionalidades que dizem respeito
+ao Top Sender.
+
+\section{Loic - HTTP}
+\label{sec:Loic - HTTP}
+Loic para testar aplicações HTTP. Utilizar o ./loic run.
+
+Este irá iniciar uma interface gráfica, que deve receber os parâmetros de IP
+destino, porta, velociade de ataque e protocolo. Este irá verificar todo o
+funcionamento avaliado pelo Hping3, porém, no protocolo HTTP. Dessa maneira,
+serão repetidos os passos 1 e 2 do teste em TCP Syn.
