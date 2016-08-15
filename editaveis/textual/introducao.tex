@@ -10,7 +10,7 @@ Para executar esta bateria de testes, iremos utilizar algumas ferramentas:
 
 Para instalar estas ferramentas, pode ser utilizado um repositório do github,
 que contém o script de instalação delas:
-\hyperref[label_name]{https://github.com/TiagoAssuncao/test-script-dmz}.
+\hyperref[label_name]{https://github.com/TiagoAssuncao/TestingDmzDOS}.
 
 O uso dessas ferramentas serão detalhados logo a seguir, descrevendo os passos para
 testar o sistema com estas. Para todas as ferramentas, primeiramente, iremos
@@ -57,3 +57,17 @@ Este irá iniciar uma interface gráfica, que deve receber os parâmetros de IP
 destino, porta, velociade de ataque e protocolo. Este irá verificar todo o
 funcionamento avaliado pelo Hping3, porém, no protocolo HTTP. Dessa maneira,
 serão repetidos os passos 1 e 2 do teste em TCP Syn.
+
+\section{Servidor UDP}
+\label{sec:Servidor UDP}
+Primeiramente, deve ser iniciado um servidor UDP na máquina que deverá ser atacada.
+Para isto, basta iniciar o programa, sem nenhuma flag, no servidor. A porta
+padrão de inicialização será a 2081.
+
+A utilização do software como cliente é parecido, tendo diferença apenas no ponto
+em que o ip do servidor deve ser informado. Para se testar o baseline, deve-se
+passar a flag (-q 1000 -t 1), para que sejam enviados mil pacotes a cada um segundo.
+E, para testar o ataque, as flags devem conter(-q 1000000000 -t 0), para enviar
+um bilhão de pacotes na máxima velocidade da rede em conjunto com o programa.
+
+Os passos de 1 a 4, do Hping3, podem ser repetidos para testar o fluxo UDP.
